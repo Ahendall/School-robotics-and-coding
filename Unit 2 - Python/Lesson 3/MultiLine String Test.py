@@ -1,3 +1,5 @@
+# Use casefold() for the case-sensitive matching
+
 choice = 0
 print ('''
 You are General Anakin Skywalker During the battle above Coruscant.
@@ -10,4 +12,8 @@ Will you save him?
 ''')
 
 choice = input()
-print (choice)
+
+if choice.casefold() == "yes":
+    print ("You have saved General Kenobi!")
+elif choice.casefold() == "no":
+    print ("General Kenobi has been killed in action.")
