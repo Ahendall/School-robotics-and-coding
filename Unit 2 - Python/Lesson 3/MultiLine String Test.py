@@ -1,4 +1,5 @@
-# Use casefold() for the case-sensitive matching
+# SELF NOTE: Use casefold() for the case-sensitive matching
+# SELF NOTE: upper() and lower() also work just fine but eh whatever
 
 choice = 0
 print ('''
