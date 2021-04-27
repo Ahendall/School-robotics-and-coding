@@ -1,5 +1,53 @@
-from playsound import playsound #using this for the movie-quoted parts
+#For the audio to work, You must download simpleaudio through pip
+import simpleaudio as sa
 import time
+
+
+"""
+Audio functions
+use var.play() to immideatly continue the code while the audio is playing
+use var.play().wait_done() to  wait until audio is finished.
+"""
+def DarthPlagueis():
+    #Not Background Audio, Use wait_done()
+    dpw = "DPW.wav"
+    dpw_obj = sa.WaveObject.from_wave_file(dpw)
+    dpw_obj.play().wait_done()
+
+def DontTryIt():
+    #Not background audio, use wait_done()
+    dti = "DontTryIt.wav"
+    dti_obj = sa.WaveObject.from_wave_file(dti)
+    dti_obj.play().wait_done()
+
+def MainTheme():
+    #background audio, do not use wait_done()
+    swt = "StarWarsTheme.wav"
+    swt_obj = sa.WaveObject.from_wave_file(swt)
+    swt_obj.play()
+    
+def Betrayal():
+    #background audio, do not use wait_done()
+    abt = "AnakinBetrayal.wav"
+    abt_obj = sa.WaveObject.from_wave_file(abt)
+    abt_obj.play()
+
+def Cantina():
+    cm = "CantinaMusic.wav"
+    cm_obj = sa.WaveObject.from_wave_file(cm)
+    cm_obj.play()
+
+def Deeds():
+    ddd = "DarkDeeds.wav"
+    ddd_obj = sa.WaveObject.from_wave_file(ddd)
+    ddd_obj.play()
+
+def ImpMarch():
+    march = "ImperialMarch.wav"
+    march_obj = sa.WaveObject.from_wave_file(march)
+    march_obj.play()
+
+
 
 # Making the paragraph vars here so that they aren't affected by the indents later on (Tested it with the multiline print previously and the indenting affected it)
 Part1Para = """
@@ -42,7 +90,10 @@ Palpatine then tells you the Tradgedy of Darth Plagueis the Wise
 Part3ContPara = """
 -----------------------------------------------------------------------------------------------------------------------
 Palpatine: Did you ever hear the Tragedy of Darth Plagueis the wise?
-I thought not. It's not a story the Jedi would tell you. It's a Sith legend.
+
+You: No.
+
+Palpatine: I thought not. It's not a story the Jedi would tell you. It's a Sith legend.
 Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force
 to influence the midichlorians to create life...
 He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.
@@ -137,8 +188,42 @@ Will you kill Palpatine and become the ruler of the Galaxy, or will you
 remain as his apprentice?
 (Type: kill/stay)"""
 
+IHateYou = """
+--------------------------------------------------------------
+Obi Wan: You were the chosen one!
+It was said that you would destroy the sith not join them!
+Bring balance to the force, not leave it in darkness!
+
+You: I HATE YOU
+                                                              
+Obi Wan: You were my brother Anakin. I loved you.               
+--------------------------------------------------------------
+"""
+
+#Part 7
+JarJarEnding = """
+The Jar Jar Ending
+Darth Jar Jar, Dark Lord of the Sith, was the true mastermind behind it all.
+Planning everything from the beginning.
+He kills you without hesitation.
+"""
+OverPoweredEnding = """
+The Overpowered Ending
+You become a Dark Lord of the Sith, so powerful and so wise that
+you can use the force to influence the midichlorians to bring back
+George Lucas to the franchise.
+"""
+
+TragicHeroEnding = """
+The Tragic Hero Ending
+"You have become the very thing you swore to destroy"
+"""
+
+
+
 #Actual Code Parts
 #Story Part 1
+MainTheme()
 print(Part1Para)
 print("Will you save General Kenobi? (Type: Yes/No)")
 Choice1Completed = False
@@ -192,8 +277,7 @@ if Choice1Ans == 1:
         print(Part3Branch2Para)
         placeholder = input("\n")
         print(Part3ContPara)
-        playsound("DPW.mp3")
-        time.sleep(2)
+        dpw_obj.play().wait_done()
         print("Will you cut off Windu's Hand or let him kill Palpatine? (Type: Cut Hand/Kill Palpatine)")
 
         Choice3Ans = 0
@@ -203,11 +287,13 @@ if Choice1Ans == 1:
             Choice3 = input()
 
             if Choice3.casefold() == "cut hand":
+                Betrayal()
                 print("You cut off Mace Windu's Hand!")
                 Choice3Ans = 1
                 Choice3Completed = True
             
             elif Choice3.casefold() == "kill palpatine" or "kill palps":
+                Cantina()
                 print("You let Master Windu kill Chancellor Palpatine!")
                 Choice3Ans = 0
                 Choice3Completed = True
@@ -248,8 +334,7 @@ if Choice1Ans == 1:
                 print(Part5Branch1Para)
                 placeholder = input()
                 print(Part5Branch1Cont)
-                playsound("DontTryIt.mp3")
-                time.sleep(2)
+                dti_obj.play().wait_done()
                 print(Part5Branch1TryIt)
                 Choice5Ans = 0
                 Choice5Completed = False
@@ -280,8 +365,7 @@ if Choice1Ans == 1:
                         Choice6 = input()
 
                         if Choice6.casefold() == "hate":
-                            print("You: I HATE YOU")
-                            print("Obi Wan: You were my brother anakin. I loved you.")
+                            print(IHateYou)
                             Choice6Ans = 1
                             Choice6Completed = True
 
@@ -293,12 +377,54 @@ if Choice1Ans == 1:
                         else:
                             print("What you typed isn't an option! Try Again.")
 
+                    #Part 7 Branch 1
+                    if Choice6Ans == 1:
+                        print(TragicHeroEnding)
+                        Deeds()
+                        time.sleep(5)
+
+                    #Part 7 Branch 2
+                    if Choice6Ans == 0:
+                        print(TragicHeroEnding)
+                        Deeds()
+                        time.sleep(5)
+
+                #Part 6 Branch 2
                 if Choice5Ans == 0:
+                    Deeds()
                     print(Part6Branch2Para)
+                    Choice6Ans = 0
+                    Choice6Completed = False
+
+                    while Choice6Completed == False:
+                        Choice6 = input()
+
+                        if Choice6.casefold() == "kill":
+                            print("You mercilessly killed Palpatine in his sleep.")
+                            Choice6Ans = 1
+                            Choice6Completed = True
+
+                        elif Choice6.casefold() == "stay":
+                            print("You stayed as Palpatine's apprentice!")
+                            Choice6Ans = 0
+                            Choice6Completed = True
+
+                        else:
+                            print("What you typed isn't an option! Try Again.")
+
+                    #Part 7 Branch 3
+                    if Choice6Ans == 1:
+                        print(JarJarEnding)
+                       
+                    #Part 7 Branch 4
+                    elif Choice6Ans == 0:
+                        print(OverPoweredEnding)
 
             #Part 5 Branch 2
             elif Choice4Ans == 0:
+                ImpMarch()
                 print(Part5Branch2Para)
+                time.sleep(5)
 
 
 #Part 2 Branch 2
