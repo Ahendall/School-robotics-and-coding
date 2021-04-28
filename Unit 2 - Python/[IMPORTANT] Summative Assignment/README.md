@@ -14,6 +14,7 @@ files will be louder than others when you play it back
 	2. Run this command in your Command Prompt (Terminal or Command line if you are on a Unix System)
 	![make sure pip command is the correct one for your platform](https://i.imgur.com/Yxpv6W3.png)
 
+
 ### Here are some of the issues I encountered while working on this.
 ***Audio file not found when Executing through VS Code***
 **Cause of issue:** VS Code's working directory isn't where the .py file is
@@ -21,14 +22,16 @@ files will be louder than others when you play it back
 At first, I used VS Code to edit the file, and IDLE to run it. Then, I just switched entirely
 to Visual Studio 2019 Community Edition.
 
+
 ***Code only continues after audio finishes***
 **Cause of issue:** The *playsound* function from the *playsound* API makes the program wait
 until the Audio finishes to continue it.
 **Solution:** used the *simpleaudio* API so that there were 2 functions. 1 for letting the code
 continue while the audio was still playing (  **play()** and **wait_done()** ).
 
+
 ***Any random answer works on lines 301 & 359***
-**Cause of issue:** for *SOME* reason, when I use *or* to handle multiple option choices
+**Cause of issue:** for *SOME MIRACULOUS REASON*, when I use *or* to handle multiple option choices
 (mainly to let the user type the answer without an apostrophe),  the while loop that makes sure
 the user types a valid answer, just doesn't function properly.
 **Solution:**: Honestly just removed the *or* and the second options without the apostrophe.
