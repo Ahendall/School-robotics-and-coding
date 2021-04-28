@@ -1,7 +1,7 @@
 ## This is my summative project for Coding & Robotics 7, Unit 2: Python.
 For this project, We made a Digital Adventure Story.
-I Chose to make mine an Choose Your Own Story (CYOA) Version of ***Star Wars: Episode III - Revenge of the Sith***.
-You can download the .zip file of the project here.
+I Chose to make mine an Choose Your Own Adventure (CYOA) Adaptation of ***Star Wars: Episode III - Revenge of the Sith***.
+[You can download the .zip file of the project here](https://github.com/Ahendall/School-robotics-and-coding/raw/main/Unit%202%20-%20Python/%5BIMPORTANT%5D%20Summative%20Assignment/%5BIMPORTANT%5D%20Summative%20Assignment.zip).
 
 A few things to note:
 
