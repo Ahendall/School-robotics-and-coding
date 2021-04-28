@@ -25,6 +25,8 @@ At first, I used VS Code to edit the file, and IDLE to run it. Then, I just swit
 to Visual Studio 2019 Community Edition.
 
 
+
+
 ***Code only continues after audio finishes***
 
 **Cause of issue:** The *playsound* function from the *playsound* API makes the program wait
@@ -32,6 +34,8 @@ until the Audio finishes to continue it.
 
 **Solution:** used the *simpleaudio* API so that there were 2 functions. 1 for letting the code
 continue while the audio was still playing (  **play()** and **wait_done()** ).
+
+
 
 
 ***Any random answer works on lines 301 & 359***
