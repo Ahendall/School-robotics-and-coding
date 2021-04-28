@@ -4,10 +4,11 @@ import time
 
 
 """
-Audio functions
+Audio functions & vars
 use var.play() to immideatly continue the code while the audio is playing
 use var.play().wait_done() to  wait until audio is finished.
-"""
+"""    
+
 def DarthPlagueis():
     #Not Background Audio, Use wait_done()
     dpw = "DPW.wav"
@@ -33,21 +34,27 @@ def Betrayal():
     abt_obj.play()
 
 def Cantina():
+    #background audio, do not use wait_done()
     cm = "CantinaMusic.wav"
     cm_obj = sa.WaveObject.from_wave_file(cm)
     cm_obj.play()
 
 def Deeds():
+    #background audio, do not use wait_done()
     ddd = "DarkDeeds.wav"
     ddd_obj = sa.WaveObject.from_wave_file(ddd)
     ddd_obj.play()
 
 def ImpMarch():
+    #background audio, do not use wait_done()
     march = "ImperialMarch.wav"
     march_obj = sa.WaveObject.from_wave_file(march)
     march_obj.play()
 
-
+def Immolation():
+    chosen = "ChosenOne.wav"
+    chosen_obj = sa.WaveObject.from_wave_file(chosen)
+    chosen_obj.play().wait_done()
 
 # Making the paragraph vars here so that they aren't affected by the indents later on (Tested it with the multiline print previously and the indenting affected it)
 Part1Para = """
@@ -252,21 +259,18 @@ if Choice1Ans == 1:
     Choice2Ans = 0
 
     while Choice2Completed == False:
-
         Choice2 = input()
-
         if Choice2.casefold() == "jedi code":
             print ("You have apprehended an unarmed Count Dooku.")
             Choice2Ans = 1
             Choice2Completed = True
-        
-        elif Choice2.casefold() == "chancellor's orders" or "chancellors orders":
+        elif Choice2.casefold() == "chancellor's orders":
             print("You killed Count Dooku.")
             Choice2Ans = 0
             Choice2Completed = True
-
         else:
             print("What you typed isn't an option! Try again.")
+            Choice2Completed = False
     
     #Part 3 Branch 1
     if Choice2Ans == 1:
@@ -277,7 +281,8 @@ if Choice1Ans == 1:
         print(Part3Branch2Para)
         placeholder = input("\n")
         print(Part3ContPara)
-        dpw_obj.play().wait_done()
+        sa.stop_all()
+        DarthPlagueis()
         print("Will you cut off Windu's Hand or let him kill Palpatine? (Type: Cut Hand/Kill Palpatine)")
 
         Choice3Ans = 0
@@ -287,12 +292,14 @@ if Choice1Ans == 1:
             Choice3 = input()
 
             if Choice3.casefold() == "cut hand":
+                sa.stop_all()
                 Betrayal()
                 print("You cut off Mace Windu's Hand!")
                 Choice3Ans = 1
                 Choice3Completed = True
             
-            elif Choice3.casefold() == "kill palpatine" or "kill palps":
+            elif Choice3.casefold() == "kill palpatine":
+                sa.stop_all()
                 Cantina()
                 print("You let Master Windu kill Chancellor Palpatine!")
                 Choice3Ans = 0
@@ -304,6 +311,7 @@ if Choice1Ans == 1:
         #part 4 branch 1
         if Choice3Ans == 0:
             print(Part4Branch1Para)
+            wait(15)
         
         #part 4 branch 2
         elif Choice3Ans == 1:
@@ -334,7 +342,8 @@ if Choice1Ans == 1:
                 print(Part5Branch1Para)
                 placeholder = input()
                 print(Part5Branch1Cont)
-                dti_obj.play().wait_done()
+                sa.stop_all()
+                DontTryIt()
                 print(Part5Branch1TryIt)
                 Choice5Ans = 0
                 Choice5Completed = False
@@ -366,6 +375,8 @@ if Choice1Ans == 1:
 
                         if Choice6.casefold() == "hate":
                             print(IHateYou)
+                            sa.stop_all()
+                            Immolation()
                             Choice6Ans = 1
                             Choice6Completed = True
 
@@ -380,17 +391,20 @@ if Choice1Ans == 1:
                     #Part 7 Branch 1
                     if Choice6Ans == 1:
                         print(TragicHeroEnding)
+                        sa.stop_all()
                         Deeds()
-                        time.sleep(5)
+                        time.sleep(15)
 
                     #Part 7 Branch 2
                     if Choice6Ans == 0:
                         print(TragicHeroEnding)
+                        sa.stop_all()
                         Deeds()
-                        time.sleep(5)
+                        time.sleep(15)
 
                 #Part 6 Branch 2
                 if Choice5Ans == 0:
+                    sa.stop_all()
                     Deeds()
                     print(Part6Branch2Para)
                     Choice6Ans = 0
@@ -414,6 +428,8 @@ if Choice1Ans == 1:
 
                     #Part 7 Branch 3
                     if Choice6Ans == 1:
+                        sa.stop_all()
+                        ImpMarch()
                         print(JarJarEnding)
                        
                     #Part 7 Branch 4
@@ -422,6 +438,7 @@ if Choice1Ans == 1:
 
             #Part 5 Branch 2
             elif Choice4Ans == 0:
+                sa.stop_all()
                 ImpMarch()
                 print(Part5Branch2Para)
                 time.sleep(5)
