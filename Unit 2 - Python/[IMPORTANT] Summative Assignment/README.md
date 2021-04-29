@@ -15,7 +15,7 @@ files will be louder than others when you play it back
 	![make sure pip command is the correct one for your platform](https://i.imgur.com/Yxpv6W3.png)
 
 
-### Here are some of the issues I encountered while working on this.\
+### Here are some of the issues I encountered while working on this.
 ***Audio file not found when Executing through VS Code***\
 **Cause of issue:** VS Code's working directory isn't where the .py file is\
 **Solution:** I was unable to fix this issue since I didn't know how properly to edit the launcher.json file.
