@@ -34,4 +34,4 @@ continue while the audio was still playing (  **play()** and **wait_done()** ).
 **Cause of issue:** for *SOME MIRACULOUS REASON*, when I use *or* to handle multiple option choices
 (mainly to let the user type the answer without an apostrophe),  the while loop that makes sure
 the user types a valid answer, just doesn't function properly.\
-**Solution:**: Honestly just removed the *or* and the second options without the apostrophe.
+**Solution:** Honestly just removed the *or* and the second options without the apostrophe.
