@@ -32,7 +32,7 @@ continue while the audio was still playing, and the other waits until the audio 
 
 
 ***Any random answer works on lines 301 & 359***\
-**Cause of issue:** for *SOME MIRACULOUS REASON*, when I use *or* to handle multiple option choices
+**Cause of issue:** for *SOME CONFUSING AF REASON*, when I use *or* to handle multiple option choices
 (mainly to let the user type the answer without an apostrophe),  the while loop that makes sure
 the user types a valid answer, just doesn't function properly.\
 **Solution:** Honestly just removed the *or* and the second options without the apostrophe.
