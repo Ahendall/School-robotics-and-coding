@@ -11,7 +11,7 @@ files will be louder than others when you play it back
 - This requires [Python 3.9.4+](https://www.python.org/downloads/) to run properly. Please download it.
 - This requires the *simpleaudio API* to run properly. To download it:
 	1. Make sure you added Python 3.9.4 to PATH when installing.
-	2. Run this command in your Command Prompt (Terminal or Command line if you are on a Unix System)
+	2. Run this command in your Command Prompt (Make sure *pip* is the correct command for your OS)
 	![make sure pip command is the correct one for your platform](https://i.imgur.com/Yxpv6W3.png)
 
 
@@ -27,7 +27,8 @@ to Visual Studio 2019 Community Edition.
 **Cause of issue:** The *playsound* function from the *playsound* API makes the program wait
 until the Audio finishes to continue it.\
 **Solution:** used the *simpleaudio* API so that there were 2 functions. 1 for letting the code
-continue while the audio was still playing (  **play()** and **wait_done()** ).
+continue while the audio was still playing, and the other waits until the audio is finished\
+(  **play()** and **wait_done()** ).
 
 
 ***Any random answer works on lines 301 & 359***\
@@ -35,3 +36,8 @@ continue while the audio was still playing (  **play()** and **wait_done()** ).
 (mainly to let the user type the answer without an apostrophe),  the while loop that makes sure
 the user types a valid answer, just doesn't function properly.\
 **Solution:** Honestly just removed the *or* and the second options without the apostrophe.
+
+
+***Audio kept overlapping and making messy noises***\
+**Cause of issue:** *Simpleaudio* does not automatically stop the currently playing audio when another one starts playing.\
+**Solution:** Manually stopped all playing audio using the function *sa.stop_all()*.
