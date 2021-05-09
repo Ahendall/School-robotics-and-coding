@@ -35,7 +35,7 @@ continue while the audio was still playing, and the other waits until the audio 
 (  **play()** and **wait_done()** ).
 
 
-***Any random answer works on lines 301 & 359***\
+***Any random answer works on lines 301 & 359 of the CAE***\
 **Cause of issue:** for *SOME CONFUSING AF REASON*, when I use *or* to handle multiple option choices
 (mainly to let the user type the answer without an apostrophe),  the while loop that makes sure
 the user types a valid answer, just doesn't function properly.\
