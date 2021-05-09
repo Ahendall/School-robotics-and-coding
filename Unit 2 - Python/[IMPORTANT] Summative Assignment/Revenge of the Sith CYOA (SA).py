@@ -1,3 +1,7 @@
+#ROTS CYOA By Ahendall
+#This is the Simple Answer (SA) Version.
+#This is exactly the same as the CA Version but easier to answer.
+
 #For the audio to work, You must download simpleaudio through pip
 import simpleaudio as sa
 import time
@@ -59,6 +63,7 @@ def ImpMarch():
     march_obj.play()
 
 def Immolation():
+    #Not background Audio, use wait_done()
     sa.stop_all()
     chosen = "ChosenOne.wav"
     chosen_obj = sa.WaveObject.from_wave_file(chosen)
@@ -76,8 +81,8 @@ With General Kenobi saved, Together you go to save the Chancellor.
 When you find the Chancellor, Count Dooku (Leader of the seperatist army) is waiting for you.
 After an agressive Duel, you have Dooku on his knees.
     
-Will you follow the Chancellor's orders to kill Dooku, or will you
-follow the Jedi Code? (Type: Chancellor's Orders/Jedi Code) """
+To follow the Chancellor's Orders and kill Dooku, type 1.
+To follow the Jedi Code, type 2."""
 
 Part2Branch2Para = """
 The Meme Ending:
@@ -153,9 +158,8 @@ Part4Branch2Cont = """
 You and the 501st Clone Leigon have marched into the Jedi Temple, killing several Jedi Masters.
 You go into the Jedi High Council Chamber, Where the younglings are hiding.
 
-Will you kill the younglings (lmao)? Or will you spare them?
-(Type: Kill/Spare)
-"""
+To kill the younglings, type 1.
+To let them live, type 2."""
 
 #Part 5
 Part5Branch1Para = """
@@ -176,8 +180,8 @@ Obi Wan: Don't try it.
 """
 
 Part5Branch1TryIt = """
-Will you test your ability, or will you listen to Obi Wan and retreat?
-(Type: Try it/Don't Try It)"""
+To try it, type 1.
+To listen to literally the master of the high ground and retreat, type 2."""
 Part5Branch2Para = """
 The Vader Ending
 Remembering the younglings, you hesitate to jump over Obi Wan when you duel with him on Mustafar.
@@ -191,17 +195,16 @@ Part6Branch1Para = """
 Obi wan Cuts off both of your legs and your left arm. You're now withering in
 pain by a lava river.
 
-Will you shout "I HATE YOU" To Obi Wan, or will you stay silent whilst being engulfed in flames?
-(Type: Hate/Silence)"""
+To shout "I HATE YOU", type 1.
+To stay silent, type 2."""
 
 Part6Branch2Para = """
 You leave Mustafar and return to Coruscant.
 Now, you are more powerful than ever, and you have a major decision to make
 To remain forever an apprentice, or to be free.
 
-Will you kill Palpatine and become the ruler of the Galaxy, or will you
-remain as his apprentice?
-(Type: kill/stay)"""
+To kill Palpatine and become ruler of the galaxy, type 1.
+To remain as his apprentice, type 2."""
 
 IHateYou = """
 --------------------------------------------------------------
@@ -240,208 +243,197 @@ The Tragic Hero Ending
 #Story Part 1
 MainTheme()
 print(Part1Para)
-print("Will you save General Kenobi? (Type: Yes/No)")
+print("To save Keneral Kenobi, type the number 1.\n" + "To let his ship get destroyed by buzz droids, type 2.")
 Choice1Completed = False
-Choice1Ans = 0
 
 while Choice1Completed == False:
     Choice1 = input()
     
-    if Choice1.casefold() == "yes":
+    if Choice1 == "1":
         print("You have saved General Kenobi!")
-        Choice1Ans = 1
         Choice1Completed = True
     
-    elif Choice1.casefold() == "no":
+    elif Choice1 == "2":
         print("You did not save General Kenobi, and he has been killed in action.")
-        Choice1Ans = 0
         Choice1Completed = True
 
     else:
         print ("What you typed isn't an option! Try again.")
 
 # Part 2 Branch 1
-if Choice1Ans == 1:
+if Choice1 == "1":
     print(Part2Branch1Para)
     Choice2Completed = False
-    Choice2Ans = 0
 
     while Choice2Completed == False:
         Choice2 = input()
-        if Choice2.casefold() == "jedi code":
+        if Choice2 == "2":
             print ("You have apprehended an unarmed Count Dooku.")
-            Choice2Ans = 1
             Choice2Completed = True
-        elif Choice2.casefold() == "chancellor's orders":
+
+        elif Choice2 == "1":
             print("You killed Count Dooku.")
-            Choice2Ans = 0
             Choice2Completed = True
+
         else:
             print("What you typed isn't an option! Try again.")
             Choice2Completed = False
     
     #Part 3 Branch 1
-    if Choice2Ans == 1:
+    if Choice2 == "2":
         print(Part3Branch1Para)
+        time.sleep(15)
+        sa.stop_all()
 
     #Part 3 Branch 2
-    if Choice2Ans == 0:
+    if Choice2 == "1":
         print(Part3Branch2Para)
         placeholder = input("\n")
         print(Part3ContPara)
         DarthPlagueis()
-        print("Will you cut off Windu's Hand or let him kill Palpatine? (Type: Cut Hand/Kill Palpatine)")
-
-        Choice3Ans = 0
+        print("To cut Windu's hand, type 1.\n" + "To let him kill Palpatine, type 2.")
         Choice3Completed = False
 
         while Choice3Completed == False:
             Choice3 = input()
 
-            if Choice3.casefold() == "cut hand":
+            if Choice3 == "1":
                 Betrayal()
                 print("You cut off Mace Windu's Hand!")
-                Choice3Ans = 1
                 Choice3Completed = True
             
-            elif Choice3.casefold() == "kill palpatine":
+            elif Choice3 == "2":
                 Cantina()
                 print("You let Master Windu kill Chancellor Palpatine!")
-                Choice3Ans = 0
                 Choice3Completed = True
 
             else:
                 print ("What you typed isn't an option! Try again.")
 
         #part 4 branch 1
-        if Choice3Ans == 0:
+        if Choice3 == "2":
             print(Part4Branch1Para)
-            wait(15)
+            time.sleep(15)
+            sa.stop_all()
         
         #part 4 branch 2
-        elif Choice3Ans == 1:
+        elif Choice3 == "1":
             print(Part4Branch2Para)
             placeholder = input("\n")
             print(Part4Branch2Cont)
             Choice4Completed = False
-            Choice4Ans = 0
 
             while Choice4Completed == False:
                 Choice4 = input()
 
-                if Choice4.casefold() == "kill":
+                if Choice4.casefold() == "1":
                     print("You have killed the younglings (lmao)!")
-                    Choice4Ans = 1
                     Choice4Completed = True
 
-                elif Choice4.casefold() == "spare":
+                elif Choice4.casefold() == "2":
                     print("You have spared the younglings!")
-                    Choice4Ans = 0
                     Choice4Completed = True
 
                 else:
                     print("What you typed isn't an option! Try again.")
 
             #Part 5 Branch 1
-            if Choice4Ans == 1:
+            if Choice4 == "1":
                 print(Part5Branch1Para)
                 placeholder = input()
                 print(Part5Branch1Cont)
                 DontTryIt()
                 print(Part5Branch1TryIt)
-                Choice5Ans = 0
                 Choice5Completed = False
 
                 while Choice5Completed == False:
                     Choice5 = input()
 
-                    if Choice5.casefold() == "try it":
+                    if Choice5.casefold() == "1":
                         print("Uh Oh. Knowing full well Kenobi is the master of the High Ground, you tried it.")
-                        Choice5Ans = 1
                         Choice5Completed = True
 
-                    elif Choice5.casefold() == "don't try it" or "dont try it":
+                    elif Choice5.casefold() == "2":
                         print("You did not try it, and instead retreated.")
-                        Choice5Ans = 0
                         Choice5Completed = True
 
                     else:
                         print("What you typed isn't an option! Try Again.")
             
                 #Part 6 Branch 1
-                if Choice5Ans == 1:
+                if Choice5 == "1":
                     print(Part6Branch1Para)
-                    Choice6Ans = 0
                     Choice6Completed = False
 
                     while Choice6Completed == False:
                         Choice6 = input()
 
-                        if Choice6.casefold() == "hate":
+                        if Choice6.casefold() == "1":
                             print(IHateYou)
                             Immolation()
-                            Choice6Ans = 1
                             Choice6Completed = True
 
-                        elif Choice6.casefold() == "silence":
+                        elif Choice6.casefold() == "2":
                             print("You stayed silent. Obi Wan watches in sadness as you get engulfed in flames.")
-                            Choice6Ans = 0
                             Choice6Completed = True
 
                         else:
                             print("What you typed isn't an option! Try Again.")
 
                     #Part 7 Branch 1
-                    if Choice6Ans == 1:
+                    if Choice6 == "1":
                         print(TragicHeroEnding)
                         Deeds()
                         time.sleep(15)
+                        sa.stop_all()
 
                     #Part 7 Branch 2
-                    if Choice6Ans == 0:
+                    if Choice6 == "2":
                         print(TragicHeroEnding)
                         Deeds()
                         time.sleep(15)
+                        sa.stop_all()
 
                 #Part 6 Branch 2
-                if Choice5Ans == 0:
+                if Choice5 == 0:
                     Deeds()
                     print(Part6Branch2Para)
-                    Choice6Ans = 0
                     Choice6Completed = False
 
                     while Choice6Completed == False:
                         Choice6 = input()
 
-                        if Choice6.casefold() == "kill":
+                        if Choice6.casefold() == "1":
                             print("You mercilessly killed Palpatine in his sleep.")
-                            Choice6Ans = 1
                             Choice6Completed = True
 
-                        elif Choice6.casefold() == "stay":
+                        elif Choice6.casefold() == "2":
                             print("You stayed as Palpatine's apprentice!")
-                            Choice6Ans = 0
                             Choice6Completed = True
 
                         else:
                             print("What you typed isn't an option! Try Again.")
 
                     #Part 7 Branch 3
-                    if Choice6Ans == 1:
+                    if Choice6 == "1":
                         ImpMarch()
                         print(JarJarEnding)
+                        sa.stop_all()
                        
                     #Part 7 Branch 4
-                    elif Choice6Ans == 0:
+                    elif Choice6 == "2":
                         print(OverPoweredEnding)
+                        sa.stop_all()
 
             #Part 5 Branch 2
-            elif Choice4Ans == 0:
+            elif Choice4 == "2":
                 ImpMarch()
                 print(Part5Branch2Para)
                 time.sleep(5)
+                sa.stop_all()
 
 
 #Part 2 Branch 2
-elif Choice1Ans == 0:
+elif Choice1 == "2":
     print(Part2Branch2Para)
+    sa.stop_all()
