@@ -50,7 +50,7 @@ the user types a valid answer, just doesn't function properly.\
 ### Self Reflection
 
 ***What went well:*** \
-Overall, coding the project was fairly simple with only a few issues. And when there was an issue, I managed to overcome it. I really like how the project turned out as well. I also thought that it was good that I made a CA and SA version of the project just so that there's an original experience, and a simplified one so that it's easier for the user.\
+I thought I did very well working on this project. Overall, coding the project was fairly simple with only a few issues. And when there was an issue, I managed to overcome it. I really like how the project turned out as well. I also thought that it was good that I made a CA and SA version of the project just so that there's an original experience, and a simplified one so that it's easier for the user.\
 ***Possible improvements:*** \
 I could have tried to utilize list variables, but I just wasn't sure how I would use them in this specific story.\
  Also, I could have spent some time on making sure that the Audio files were properly leveled so that you wouldn't have to keep adjusting your volume throughout the story.
