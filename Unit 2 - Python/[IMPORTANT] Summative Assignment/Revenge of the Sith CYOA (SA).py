@@ -1,6 +1,6 @@
 """
 ROTS CYOA By Ahendall
-#This is the Simple Answer (SA) Version.
+This is the Simple Answer (SA) Version.
 This is exactly the same as the CA Version but easier to answer.
 """
 #For the audio to work, You must download simpleaudio through pip
